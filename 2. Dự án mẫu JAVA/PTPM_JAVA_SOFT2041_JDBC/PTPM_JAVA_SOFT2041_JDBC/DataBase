@@ -1,0 +1,81 @@
+CREATE DATABASE QUAN_LY_NHA_HANG
+USE QUAN_LY_NHA_HANG
+GO
+
+-- NhanVien --
+CREATE TABLE NhanVien (
+MaNV NVARCHAR(20) PRIMARY KEY,
+Ten NVARCHAR(50),
+GioiTinh NVARCHAR(10),
+DiaChi NVARCHAR(50),
+Sdt NVARCHAR(11),
+Email NVARCHAR(50),
+NgaySinh DATE,
+TenNguoiDung NVARCHAR(50),
+MatKhau NVARCHAR(50),
+VaiTro NVARCHAR(30)
+)
+
+-- Nguyên liệu --
+CREATE TABLE NguyenLieu(
+MaNL NVARCHAR(20) PRIMARY KEY,
+TenNL NVARCHAR(50),
+NgayNhap DATE,
+HSD DATE,
+TrangThai INT,
+MoTa NVARCHAR(100)
+)
+
+-- Sản phẩm --
+CREATE TABLE SanPham(
+MaSP NVARCHAR(20) PRIMARY KEY,
+TenSP NVARCHAR(50),
+Gia FLOAT,
+TrangThai INT,
+SoLuong INT
+)
+
+-- Sản phẩm chi tiết --
+CREATE TABLE ChiTietSP(
+MaNL NVARCHAR(20),
+MaSP NVARCHAR(20),
+SoLuong INT,
+DonGia FLOAT,
+ThanhTien FLOAT
+)
+
+-- Hóa đơn --
+CREATE TABLE HoaDon(
+MaHD NVARCHAR(20) PRIMARY KEY,
+NgayTao DATE,
+TrangThai INT,
+ThoiGian DATETIME,
+TongTien FLOAT
+
+)
+
+-- Hóa đơn chi tiết --
+CREATE TABLE HoaDonCT(
+MaSP NVARCHAR(50),
+MaHD NVARCHAR(50),
+SoLuong INT,
+DonGia FLOAT,
+ThanhTien FLOAT
+)
+
+-- Bàn --
+CREATE TABLE Ban(
+MaBan NVARCHAR(20) PRIMARY KEY,
+TrangThai INT
+)
+
+-- Khuyến mãi --
+CREATE TABLE KhuyenMai(
+MaKM NVARCHAR(20) PRIMARY KEY,
+TenKM NVARCHAR(50),
+NgayBatDau DATE,
+NgayKetThuc DATE,
+ChietKhau FLOAT,
+TrangThai INT
+)
+
